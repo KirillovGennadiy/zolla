@@ -1,0 +1,12 @@
+/WtEvents/App_Data/*
+/packages/*
+!packages/repositories.config
+/Intravision.Common/**/bin/
+/Intravision.Common/**/obj/
+/**/bin/
+/**/obj/
+/**/*.suo
+/**/*.csproj.user
+/JlrPressPark.sln.DotSettings.user
+/.vs/config/applicationhost.config
+/.vs/

@@ -1,0 +1,17 @@
+﻿@model Test.ViewModels.IndexViewModel<Test.Models.Client>
+@{
+    ViewBag.Title = "Клиенты";
+}
+
+<div class="row">
+    <div class="col-2">
+        <nav class="nav flex-column">
+            <a href="@Url.Action("CreateOrUpdate")" class="btn btn-outline-dark btn-sm btn-block" data-type="open-modal">Добавить</a>
+        </nav>
+    </div>
+    <div class="col-10">
+        <div id="clients-grid-container">
+            @Html.Partial("Grid")
+        </div>
+    </div>
+</div>
