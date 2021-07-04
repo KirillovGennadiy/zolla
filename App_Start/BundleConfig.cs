@@ -8,7 +8,12 @@ namespace Test
         // For more information on bundling, visit https://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            BundleTable.EnableOptimizations = false;
+            Scripts(bundles);
+            Styles(bundles);
+        }
+
+        public static void Scripts(BundleCollection bundles)
+        {
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
@@ -16,29 +21,34 @@ namespace Test
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
-            // Use the development version of Modernizr to develop with and learn from. Then, when you're
-            // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
-            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Scripts/modernizr-*"));
-
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                    "~/Scripts/bootstrap.min.js",
-                    "~/Scripts/popper.min.js"));
-            
-            bundles.Add(new ScriptBundle("~/bundles/script").Include(
-                    "~/Scripts/script.js"));
-            
-            
+                    "~/Scripts/popper.min.js",
+                    "~/Scripts/bootstrap.min.js"
+                    ));
+
             bundles.Add(new ScriptBundle("~/bundles/ajax").Include(
                     "~/Scripts/jquery.unobtrusive-ajax.min.js"));
             
-            
+            bundles.Add(new ScriptBundle("~/bundles/mask").Include(
+                    "~/Scripts/jquery.mask.min.js"));
+
+
             bundles.Add(new ScriptBundle("~/bundles/datetimepicker").Include(
                     "~/Scripts/moment.min.js",
-                    "~/Scripts/datetimepicker/bootstrap-datetimepicker.min.js",
-                    "~/Scripts/datetimepicker/bootstrap-datetimepicker.ru.js"
+                    "~/Scripts/moment-with-locales.min.js",
+                    "~/Scripts/datetimepicker/bootstrap-datetimepicker.min.js"
                     ));
 
+            bundles.Add(new ScriptBundle("~/bundles/script").Include(
+                    "~/Scripts/components/functions.js",
+                    "~/Scripts/components/form.js",
+                    "~/Scripts/components/modal.js"
+                    ));
+
+        }
+
+        public static void Styles(BundleCollection bundles)
+        {
 
             bundles.Add(new StyleBundle("~/Content/datetimepicker").Include(
                       "~/Content/font-awesome.min.css",

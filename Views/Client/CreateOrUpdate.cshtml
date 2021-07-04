@@ -5,7 +5,7 @@
 }
 
 <div id="client">
-    @using (Ajax.BeginForm("CreateOrUpdate", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "clients-grid-container", OnSuccess = "ajaxSuccess" }))
+    @using (Ajax.BeginForm("CreateOrUpdate", null, new AjaxOptions { HttpMethod = "POST", OnSuccess = "ajaxSuccess('#clients-grid-container', data)" }, new { id = "client-form" }))
     {
     <div class="modal-body">
         @Html.AntiForgeryToken()
@@ -13,18 +13,22 @@
         <div class="form-group">
             @Html.LabelFor(m => m.LastName)
             @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.LastName)
         </div>
         <div class="form-group">
             @Html.LabelFor(m => m.FirstName)
             @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.FirstName)
         </div>
         <div class="form-group">
             @Html.LabelFor(m => m.Patronymic)
             @Html.TextBoxFor(m => m.Patronymic, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Patronymic)
         </div>
         <div class="form-group">
             @Html.LabelFor(m => m.BirthDate)
             @Html.TextBoxFor(m => m.BirthDate, new { @class = "form-control datetime" })
+            @Html.ValidationMessageFor(m => m.BirthDate)
         </div>
         @if (Model.Id > 0)
         {

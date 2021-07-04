@@ -6,7 +6,6 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/datetimepicker")
-    @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
     <div class="jumbotron jumbotron-fluid">
@@ -27,8 +26,10 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/ajax")
+    @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/datetimepicker")
+    @Scripts.Render("~/bundles/mask")
     @Scripts.Render("~/bundles/script")
     @RenderSection("scripts", required: false)
 </body>

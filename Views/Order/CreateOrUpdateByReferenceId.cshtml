@@ -17,14 +17,17 @@
             <div class="form-group">
                 @Html.LabelFor(m => m.Name)
                 @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Name)
             </div>
             <div class="form-group">
                 @Html.LabelFor(m => m.Price)
-                @Html.TextBoxFor(m => m.Price, new { @class = "form-control" })
+                @Html.TextBoxFor(m => m.Price, new { @class = "form-control format" })
+                @Html.ValidationMessageFor(m => m.Price)
             </div>
             <div class="form-group">
                 @Html.LabelFor(m => m.CreateDate)
                 @Html.TextBoxFor(m => m.CreateDate, new { @class = "form-control datetime" })
+                @Html.ValidationMessageFor(m => m.CreateDate)
             </div>
         </div>
         <div class="modal-footer">
@@ -32,4 +35,15 @@
             <button type="submit" class="btn btn-primary">Сохранить</button>
         </div>
     }
+    <script>
+        // #TODO. workaround, datetimepicker cleared when response contains validation errors
+        initDatePicker('#client', '.datetime');
+
+        $('#client').on('click', '[type=submit]', (e) => {
+            e.preventDefault();
+            clearMaskBeforeSubmit('#client', '.format');
+
+            $(e.target).closest('form').submit();
+        })
+    </script>
 </div>

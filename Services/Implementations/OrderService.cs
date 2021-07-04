@@ -20,7 +20,7 @@ namespace Test.Services.Implementations
             ) : base(repository, mapper)
         { }
 
-        public async Task<IndexViewModel<Order>> GetOrdersByReferenceIdAsync(int id, int? page = null)
+        public async Task<IndexViewModel<Order>> GetByReferenceIdAsync(int id, int? page = null)
         {
             var model = new IndexViewModel<Order>();
 
@@ -33,7 +33,7 @@ namespace Test.Services.Implementations
             return model;
         }
 
-        public async Task<OrderViewModel> CreateOrUpdateByReferenceId(int referenceId, int? id = null)
+        public async Task<OrderViewModel> CreateOrUpdateByReferenceIdAsync(int referenceId, int? id = null)
         {
             if (!id.HasValue)
             {

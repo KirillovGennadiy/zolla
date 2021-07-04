@@ -10,7 +10,7 @@ namespace Test.Services.Interfaces
 {
     public interface IOrderService
     {
-        Task<IndexViewModel<Order>> GetOrdersByReferenceIdAsync(int id, int? page = null);
-        Task<OrderViewModel> CreateOrUpdateByReferenceId(int referenceId, int? id = null);
+        Task<IndexViewModel<Order>> GetByReferenceIdAsync(int id, int? page = null);
+        Task<OrderViewModel> CreateOrUpdateByReferenceIdAsync(int referenceId, int? id = null);
     }
 }

@@ -14,3 +14,7 @@
 .dl-horizontal dt {
     white-space: normal;
 }
+
+.field-validation-error {
+    color: #c00;
+}

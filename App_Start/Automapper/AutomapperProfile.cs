@@ -10,6 +10,7 @@ namespace Test.App_Start.Automapper
 {
     public class AutomapperProfile : Profile
     {
+        // Represents how to map models into each other
         public AutomapperProfile()
         {
             CreateMap<Client, ClientViewModel>().ReverseMap();
