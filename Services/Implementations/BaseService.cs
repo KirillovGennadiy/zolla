@@ -11,6 +11,7 @@ using Test.ViewModels;
 
 namespace Test.Services.Implementations
 {
+    // Base implementation of IBaseService interface
     public class BaseService<TEntity, TViewModel> : IBaseService<TEntity, TViewModel>
         where TEntity: class, IEntity
         where TViewModel: class, IEntity, new()
@@ -24,7 +25,7 @@ namespace Test.Services.Implementations
             _repository = repository;
             _mapper = mapper;
         }
-
+        // Get an empty view model when you need to create from the database - update 
         public virtual async Task<TViewModel> CreateOrUpdate(int? id = null)
         {
             if (!id.HasValue)

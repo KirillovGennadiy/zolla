@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Test.DataAccess.Base
+﻿namespace Test.DataAccess.Base
 {
+    // Interface is represent a base entity in Db
     public interface IEntity
     {
         public int Id { get; set; }

@@ -14,7 +14,7 @@ namespace Test.Controllers
         where TEntity: class, IEntity
         where TViewModel: class, IEntity, new()
     {
-        // Base Crud service implement base operations
+        // Basic Crud service that implements basic operations 
         protected readonly IBaseService<TEntity, TViewModel> _service;
         public BaseController(IBaseService<TEntity, TViewModel> service)
         {

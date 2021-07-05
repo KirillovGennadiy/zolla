@@ -36,12 +36,13 @@
         </div>
     }
     <script>
-        // #TODO. workaround, datetimepicker cleared when response contains validation errors
+        // #TODO. workaround, datetimepicker and mask cleared when response contains validation errors
         initDatePicker('#client', '.datetime');
+        initMaskedInput('#client', '.format');
 
         $('#client').on('click', '[type=submit]', (e) => {
             e.preventDefault();
-            clearMaskBeforeSubmit('#client', '.format');
+            clearMask('#client', '.format');
 
             $(e.target).closest('form').submit();
         })

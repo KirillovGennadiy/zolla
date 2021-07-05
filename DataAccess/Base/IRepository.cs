@@ -11,7 +11,6 @@ namespace Test.DataAccess.Base
     {
         IQueryable<TEntity> GetQuery();
         IQueryable<TEntity> GetQueryNoTracking();
-        Task<TEntity> SingleAsync(int key);
         Task<TEntity> FirstOrDefaultAsync(int key);
         TEntity Add(TEntity entity);
         Task<TEntity> UpdateAsync(TEntity entity);

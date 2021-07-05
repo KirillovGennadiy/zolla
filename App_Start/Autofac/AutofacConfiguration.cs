@@ -6,22 +6,25 @@ using AutoMapper;
 
 namespace Test.App_Start.Autofac
 {
+    // Configurate autofac
     public class AutofacConfiguration
     {
         public static void Configure()
         {
             var builder = new ContainerBuilder();
-
-            builder.RegisterModule<AutofacWebTypesModule>();
-            builder.RegisterSource(new ViewRegistrationSource());
+            // Register automapper
             builder.RegisterAutoMapper(typeof(MvcApplication).Assembly);
-            builder.RegisterModule(new AutofacControllersModule());
+            // Register context
             builder.RegisterModule(new AutofacDbContextModule());
+            // Register repositories
             builder.RegisterModule(new AutofacRepositoryModule());
+            // Register services
             builder.RegisterModule(new AutofacServicesModule());
+            // Register Controllers
             builder.RegisterModule(new AutofacControllersModule());
             
             var container = builder.Build();
+            // Set autofac dependency resolver
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }
 

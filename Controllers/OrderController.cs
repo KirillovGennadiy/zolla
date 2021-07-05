@@ -26,6 +26,11 @@ namespace Test.Controllers
         [HttpGet]
         public virtual async Task<ActionResult> GridByReferenceId(int id, int page = 0)
         {
+            if (!Request.IsAjaxRequest())
+            {
+                return View("Error");
+            }
+
             var model = await _orderService.GetByReferenceIdAsync(id, page);
             return View(model);
         }
@@ -33,6 +38,11 @@ namespace Test.Controllers
         [HttpGet]
         public async Task<ActionResult> CreateOrUpdateByReferenceId(int referenceId, int? id = null)
         {
+            if (!Request.IsAjaxRequest())
+            {
+                return View("Error");
+            }
+
             var model = await _orderService.CreateOrUpdateByReferenceIdAsync(referenceId, id);
             return View(model);
         }
@@ -41,6 +51,11 @@ namespace Test.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> CreateOrUpdateByReferenceId(OrderViewModel model)
         {
+            if (!Request.IsAjaxRequest())
+            {
+                return View("Error");
+            }
+
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -58,12 +73,17 @@ namespace Test.Controllers
         }
 
         [HttpPost]
-        public virtual async Task<ActionResult> Delete(int id)
+        public async Task<ActionResult> Delete(int id, int parentId)
         {
+            if (!Request.IsAjaxRequest())
+            {
+                return View("Error");
+            }
+
             try
             {
                 await _service.Delete(id);
-                return RedirectToAction("GridByReferenceId", new { id });
+                return RedirectToAction("GridByReferenceId", new { id = parentId });
             }
             catch (Exception e)
             {

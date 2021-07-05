@@ -13,9 +13,7 @@ namespace Test.App_Start.Autofac
         {
             builder.RegisterGeneric(typeof(BaseService<,>)).As(typeof(IBaseService<,>)).InstancePerRequest();
 
-            builder.RegisterType<ClientService>().As<IBaseService<Client, ClientViewModel>>().InstancePerRequest();
-            builder.RegisterType<ClientService>().As<IClientService>().InstancePerRequest();
-
+            builder.RegisterType<ClientService>().AsImplementedInterfaces().InstancePerRequest();
             builder.RegisterType<OrderService>().AsImplementedInterfaces().InstancePerRequest();
         }
     }

@@ -21,7 +21,7 @@ const initMaskedInput = (formSelector, inputSelector) => {
     $(formSelector).find(inputSelector).mask('# ##0,00', { reverse: true });
 }
 
-const clearMaskBeforeSubmit = (formSelector, inputSelector) => {
+const clearMask = (formSelector, inputSelector) => {
     let value = $(formSelector).find(inputSelector).val();
     $(formSelector).find(inputSelector).val(value.replaceAll(' ', ''));
 }
